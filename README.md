@@ -1,2 +1,4 @@
 # Javascript roman number converter
-i'm just started to write, maybe some outputs will be wrong
+![](usage.gif)
+
+written for algorithms lesson, wanted to learn how the things going on.

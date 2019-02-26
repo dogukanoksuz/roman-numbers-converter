@@ -9,6 +9,7 @@
 
 class RomanNumbers {
     constructor () {
+        // init numbers class with needed numbers/symbols
         this.numbers = {
             I: 1,
             V: 5,
@@ -16,45 +17,31 @@ class RomanNumbers {
             L: 50,
             C: 100,
             D: 500,
-            M: 1000,
-            1: 'I',
-            5: 'V',
-            10: 'X',
-            50: 'L',
-            100: 'C',
-            500: 'D',
-            1000: 'M'
+            M: 1000
         }
     }
 
-    convertToNumber (input) {
+    convertToNumber = (input) => {
+        // function name is explaining everything
         let result = 0;
 
-        if (input.length === 1) {
-            return this.numbers[input];
-        }
+        // uppercase the input.
+        input = input.toUpperCase();
 
-        if (input.length < 1) {
-            return result;
-        }
+        // ES6 type parse for chars
+        let arr = [...input];
 
-        let arrayOfChars = [...input];
-
-        for (let i = 1; i < arrayOfChars.length; i++) {
-            if (this.numbers[arrayOfChars[i - 1]] < this.numbers[arrayOfChars[i]]) {
-                result -= this.numbers[arrayOfChars[i-1]] - this.numbers[arrayOfChars[i]];
-            }
-
-            if (this.numbers[arrayOfChars[i-1]] > this.numbers[arrayOfChars[i]]) {
-                result += this.numbers[arrayOfChars[i-1]];
-            }
-
-            if (this.numbers[arrayOfChars[i-1]] === this.numbers[arrayOfChars[i]]) {
-                result += this.numbers[arrayOfChars[i-1]];
-            }
-
-            if (i === arrayOfChars.length - 1 && arrayOfChars.length > 2) {
-                result += this.numbers[arrayOfChars[i]];
+        for (let i = 0; i < arr.length; i++) {
+            if (i + 1 < arr.length) {
+                if (this.numbers[arr[i]] >= this.numbers[arr[i+1]]) {
+                    result += this.numbers[arr[i]];
+                } else {
+                    result += this.numbers[arr[i+1]] - this.numbers[arr[i]];
+                    i++;
+                }
+            } else {
+                result += this.numbers[arr[i]];
+                i++;
             }
         }
 
@@ -64,5 +51,9 @@ class RomanNumbers {
 
 let _RomanNumbers = new RomanNumbers();
 let calculate = () => {
-    document.getElementById("output").innerText = _RomanNumbers.convertToNumber(document.getElementById("input").value);
+    if (isNaN(_RomanNumbers.convertToNumber(document.getElementById("input").value))) {
+        document.getElementById("output").innerText = "i think you write a wrong thing.";
+    } else {
+        document.getElementById("output").innerText = _RomanNumbers.convertToNumber(document.getElementById("input").value);
+    }
 };

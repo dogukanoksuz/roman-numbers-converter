@@ -2,11 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Roman numbers converter</title>
+    <title>Roman numbers to decimal number converter</title>
+    <style>
+        body {
+            font-size: 16px;
+            font-family: Arial, serif;
+            padding: 30px;
+        }
+
+        input, textarea {
+            display: block;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            min-width: 30%;
+        }
+
+        input:focus, textarea:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+        }
+
+        #output {
+            font-size: 28px;
+            font-weight: 700;
+            color: #842100;
+        }
+    </style>
 </head>
 <body>
-<input type="text" autocomplete="false" placeholder="enter the roman number" name="willBeConverted" id="input" onchange="calculate()">
-<p id="output">and press enter<br/>note: it's experimental, some results will be wrong</p>
-<script src="romannumbers.js"></script>
+<!-- unneccessary things -->
+<h1>Roman numbers to decimal number converter</h1>
+<h5 style="margin-top: -30px;">written by Doğukan Öksüz</h5>
+
+<p>
+    <b>How to use?</b><br>
+    <span style="font-size: 13px;">Write valid roman number into the input and press "ENTER"<br>
+        That's all!<br></span>
+</p> <br> <br>
+
+<!-- input for roman number -->
+<input type="text" autocomplete="false" placeholder="Enter roman number (non case-sensitive)" name="willBeConverted" id="input"
+       onchange="calculate()">
+
+<!-- result output div -->
+<p id="output"></p>
+
+<!-- import romannumbers.js -->
+<script src="romannumbers.js" type="text/javascript"></script>
 </body>
 </html>
