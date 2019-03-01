@@ -7,8 +7,8 @@
         body {
             font-size: 16px;
             font-family: Arial, serif;
-            padding: 30px;
         }
+
         input, textarea {
             display: block;
             padding: .375rem .75rem;
@@ -20,8 +20,9 @@
             border: 1px solid #ced4da;
             border-radius: .25rem;
             transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-            min-width: 30%;
+            min-width: 60%;
         }
+
         input:focus, textarea:focus {
             color: #495057;
             background-color: #fff;
@@ -29,21 +30,45 @@
             outline: 0;
             box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
         }
-        #output {
+
+        #output_1, #output_2 {
             font-size: 28px;
             font-weight: 700;
             color: #842100;
         }
+
+        .col-6 {
+            width: calc(50% - 30px);
+            float: left;
+            padding: 15px;
+        }
     </style>
 </head>
 <body>
-<h1>Roman to decimal converter</h1><p>
-    <b>How to use?</b><br>
-    <span style="font-size: 13px;">Write valid roman number into the input and press "ENTER"<br>
+<div class="col-6">
+    <h1>Roman to decimal converter</h1>
+    <p>
+        <b>How to use?</b><br>
+        <span style="font-size: 13px;">Write valid roman number into the input and press "ENTER"<br>
         That's all!<br></span>
-</p> <br> <br>
-<input type="text" autocomplete="false" placeholder="Enter roman number (non case-sensitive)" name="willBeConverted" id="input" onchange="calculate()">
-<p id="output"></p>
+    </p> <br> <br>
+    <input type="text" autocomplete="false" placeholder="Enter roman number (non case-sensitive)" name="willBeConverted"
+           id="input_1" onchange="RomanToDecimal()">
+    <p id="output_1"></p>
+</div>
+
+<div class="col-6">
+    <h1>Decimal to roman converter</h1>
+    <p>
+        <b>How to use?</b><br>
+        <span style="font-size: 13px;">Write valid number into the input and press "ENTER"<br>
+        That's all!<br></span>
+    </p> <br> <br>
+    <input type="text" autocomplete="false" placeholder="Enter number" name="willBeConverted"
+           id="input_2" onchange="DecimalToRoman()">
+    <p id="output_2"></p>
+</div>
+
 <script src="romannumbers.js"></script>
 </body>
 </html>
